@@ -1,0 +1,190 @@
+body {
+    background-color: rgb(219, 214, 214);
+}
+
+.logo-class {
+    text-align: center;
+}
+
+.create-button {
+    margin-left: 0;
+    padding: 20px 120px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 16px;
+    background-color: rgb(219, 214, 214);
+    border: none;
+    transition: background-color 0.4s;
+    cursor: pointer;
+}
+
+.create-button:hover {
+    background-color: rgb(150, 147, 147);
+}
+
+.create-button:active {
+    background-color: rgb(202, 198, 198);
+}
+
+.divider {
+    border-left: 2px solid rgb(68, 66, 66);
+    height: 100vh;
+    position: fixed;
+    margin-left: 300px;
+    padding: 0 20px; /* Add some padding for spacing */
+    top: 0;
+}
+
+.post-card {
+    display: flex; /* Use flexbox layout */
+    flex-direction: column;
+    height: 700px;
+    width: 500px;
+    border-radius: 16px;
+    border: 2px solid rgb(68, 66, 66);
+    margin-bottom: 100px;
+}
+
+.top-card {
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; /* Spreads items along the horizontal axis */
+    align-items: flex-start; /* Aligns items at the top */
+    padding: 10px; /* Add some padding for spacing */
+}
+
+.username {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.dot-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    transition: color 0.15s;
+}
+
+.dot-button:active {
+    color: rgb(73, 72, 72);
+}
+
+.center-image {
+    width: 446px;
+    height: 450px;
+    border: 2px solid black;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.icons {
+    display: flex;
+    justify-content: left;
+    margin-left: 25px;
+}
+
+.heart-button {
+    background-color: rgb(219, 214, 214);
+    border: none;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.heart-button:hover {
+    background-color: rgb(204, 201, 201);
+}
+
+.heart-button:active {
+    background-color: rgb(180, 178, 178);
+}
+
+.comment-button {
+    background-color: rgb(219, 214, 214);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.comment-button:hover {
+    background-color: rgb(204, 201, 201);
+}
+
+.comment-button:active {
+    background-color: rgb(180, 178, 178);
+}
+
+.num-likes {
+    display: flex;
+    justify-content: left;
+    margin-left: 42px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.comment {
+    word-wrap: break-word;
+    text-align: left;
+    overflow-wrap: break-word;
+    margin-left: 25px;
+    width: 450px;
+    height: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1000;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(219, 214, 214);
+    width: 1000px;
+    height: 500px;
+    padding: 50px;
+    z-index: 1000;
+    border-radius: 16px;
+}
+
+.image-border {
+    display: flex;
+    flex-direction: column;
+    width: 446px;
+    height: 446px;
+    border: 2px solid black;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.file-select {
+    border-radius: 8px;
+    border: none;
+    margin-top: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(226, 231, 231);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    transition: background-color 0.4s,
+    color 0.4s;
+}
+
+.file-select:hover {
+    background-color: rgb(25, 26, 26);
+    color: rgb(226, 231, 231);
+}
