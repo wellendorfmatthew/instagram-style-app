@@ -6,6 +6,23 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
   const [showPicker, setShowPicker] = useState(false);
+  const [user, setUser] = useState("defaultuser");
+  const [likes, setLikes] = useState(0);
+  const [comment, setComment] = useState("0");
+  const [userPost, setUserPost] = useState("0");
+  const [commentUser, setCommentUser] = useState("0");
+  const [createPost, setCreatePost] = useState({
+    "username": user,
+    "likes": likes,
+    "post": userPost,
+    "image": imagePreviewUrl,
+    "comments": [
+        {
+            "username": commentUser,
+            "post": comment
+        }
+    ]
+})
 
   useEffect(() => {
     const fetchData = async() => {
@@ -56,13 +73,60 @@ function App() {
     setShowPicker(false);
   }
 
+  const handleText = (e) => {
+    setUserPost(e.target.value);
+  }
+
+  const handleSetPosts = (data) => {
+    const updatedPosts = [data, ...posts];
+    setPosts(updatedPosts);
+  }
+
+  const handleShare = async () => {
+    const postData = {
+      "username": user,
+      "likes": likes,
+      "post": userPost,
+      "image": imagePreviewUrl,
+      "comments": [
+          {
+              "username": commentUser,
+              "post": comment
+          }
+      ]
+  }
+  try {
+    const response = await fetch("http://localhost:4000/api/instagram", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postData)
+    })
+    console.log(response, "Sending the post request");
+    console.log(user, likes, userPost, imagePreviewUrl, commentUser, comment);
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    handleSetPosts(data);
+    console.log(data);
+    onClose();
+  } catch (error) {
+    console.log("Couldn't create the post", error);
+  }
+}
+
   return (
     <div className="App">
       <div className='logo-class'>
         <img src='/instagram-logo.png' alt='Instagram Logo' height={100} width={300}></img>
+        <p id='default'>{user}</p>
       </div>
       <button className='create-button' onClick={toggleCreateFilePicker}>Create</button>
-      {showPicker && <Modal handleClose={onClose} handleFileSelect={handleFileChange}/>}
+      {showPicker && <Modal handleClose={onClose} handleFileSelect={handleFileChange} imagePreviewUrl={imagePreviewUrl} handleText={handleText} handleShare={handleShare}/>}
       <div className='divider'></div>
       <center className='center-section'>
           {posts.map((post, index) => {
@@ -72,7 +136,7 @@ function App() {
                         <button className='dot-button'>...</button>
                       </div>
                       <div className='center-image'>
-                        <img src="/gilgamesh.jpg" alt={post.image} width={446} height={450}/>
+                        <img src={post.image} alt={post.image} width={446} height={450}/>
                       </div>
                       <div className='icons'>
                         <button className='heart-button'><img src="/heart.png" alt='h' width={30} height={30}/></button>

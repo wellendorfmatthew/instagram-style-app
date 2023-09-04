@@ -159,20 +159,25 @@ body {
 
 .image-border {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 446px;
     height: 446px;
     border: 2px solid black;
     margin-left: 25px;
-    margin-right: 25px;
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
+}
+
+.picture {
+    object-fit: fill;
 }
 
 .file-select {
     border-radius: 8px;
     border: none;
-    margin-top: 10px;
+    width: 410px;
+    margin-top: 5px;
+    margin-left: 25px;
     padding: 10px 20px;
     text-align: center;
     cursor: pointer;
@@ -180,11 +185,55 @@ body {
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    transition: background-color 0.4s,
-    color 0.4s;
+    transition: background-color 0.4s, color 0.4s;
+    display: flex;
+    flex-direction: column;
 }
 
 .file-select:hover {
+    background-color: rgb(25, 26, 26);
+    color: rgb(226, 231, 231);
+}
+
+.text-field {
+    margin-left: 200px;
+    text-align: left;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-size: 15px;
+    height: 200px;
+    width: 200px;
+    border: none;
+    text-align: center;
+    background-color: rgb(219, 214, 214);
+}
+
+.text-field:focus {
+    outline: none;
+}
+
+.text-line {
+    margin-left: 100px;
+    width: 400px;
+}
+
+.create-post {
+    margin-left: 95px;
+    margin-top: 100px;
+    border-radius: 8px;
+    border: none;
+    width: 410px;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(226, 231, 231);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+.create-post:hover {
     background-color: rgb(25, 26, 26);
     color: rgb(226, 231, 231);
 }
