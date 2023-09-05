@@ -1,5 +1,6 @@
 import './App.css';
 import Modal from './FilePicker';
+import LogoSection from './components/LogoSection';
 import React, { useState, useEffect } from 'react';
 
 function App() {
@@ -121,10 +122,8 @@ function App() {
 
   return (
     <div className="App">
-      <div className='logo-class'>
-        <img src='/instagram-logo.png' alt='Instagram Logo' height={100} width={300}></img>
-        <p id='default'>{user}</p>
-      </div>
+      <LogoSection />
+      <p id='default'>{user}</p>
       <button className='create-button' onClick={toggleCreateFilePicker}>Create</button>
       {showPicker && <Modal handleClose={onClose} handleFileSelect={handleFileChange} imagePreviewUrl={imagePreviewUrl} handleText={handleText} handleShare={handleShare}/>}
       <div className='divider'></div>
